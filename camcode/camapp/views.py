@@ -8,16 +8,17 @@ from .camera import VideoCamera, IPWebCam, LiveWebCam
 from django.http.response import StreamingHttpResponse
 # Create your views here.
 def index(request):
-    if request.method=="POST":
-        name=request.POST.get('name')
-        passw=request.POST.get('password')
-        ipadd=request.POST.get('ipaddress')
-        camno=request.POST.get('cname')
-        fm=AddCamera(Name=name,Password=passw,Ip_Adderss=ipadd,Camera_Number=camno)
-        fm.save()
-    else:
-        return render(request,"index.html")
-    return render(request,"index.html",{"user":User.username})
+    if request.user.is_authenticated:
+        if request.method=="POST":
+            name=request.POST.get('name')
+            passw=request.POST.get('password')
+            ipadd=request.POST.get('ipaddress')
+            camno=request.POST.get('cname')
+            fm=AddCamera(Name=name,Password=passw,Ip_Adderss=ipadd,Camera_Number=camno)
+            fm.save()
+        else:
+            return render(request,"index.html")
+    return redirect(login)
 def login(request):
     email=request.POST.get("email")
     passw=request.POST.get("password")
@@ -47,7 +48,20 @@ def singup(request):
             return render(request,"singup.html") 
     return render(request,"singup.html") 
 def client_details(request):
-    return render(request,"client_details.html")
+    if request.user.is_superuser:
+        return render(request,"client_details.html")
+    return redirect(index)
+def admin_page(request):
+    if request.user.is_superuser:
+        return render(request,"admin_page.html")
+    return redirect(index)
+def logout(request):
+    auth.logout(request)
+    return redirect(index)
+
+
+
+
 
 #CAM Code.........
 def gen(camera):
