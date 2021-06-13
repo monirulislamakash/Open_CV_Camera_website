@@ -1,0 +1,44 @@
+body{
+ margin: 0px;
+ padding: 0px;
+
+}
+.home_slider{
+	max-width: 1300px;
+	height: 85vh;
+	background: #999;
+	max-height:700px;
+}
+.slider_button{
+	max-width: 1300px;
+	float:right;
+}
+.m_s_button{
+	width:35px;
+	height:35px;
+	border-radius:50px;
+	color: #fff;
+	border: none;
+	margin:0px;
+	padding:0px;
+}
+.main{
+	width:80%;
+	height:500px;
+	display:inline-block;
+}
+.side{
+	width:20%;
+	height:500px;
+	display:inline-block;
+	float: right;
+}
+.c_select{
+	margin-bottom:30px;
+	background:#212529;
+	color:#fff;
+	padding: 10px;
+}
+.c_select:nth-child(1) {
+  margin-top:50px;
+}
