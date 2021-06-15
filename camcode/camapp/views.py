@@ -31,22 +31,23 @@ def login(request):
             return render(request,"login.html",{'error':"Invalide User Password"})
     return render(request,"login.html")
 def singup(request):
-    f_name=request.POST.get("f_name")
-    l_name=request.POST.get("l_name")
-    email=request.POST.get("email")
-    passw=request.POST.get("password")
-    cpassw=request.POST.get("confirmpassword")
-    if request.method=="POST":
-        if passw==passw:
-            try:
-                user=User.objects.get(username=email)
-                return render(request,"singup.html",{'error':"User already exists"})  
-            except User.DoesNotExist:
-                user=User.objects.create_user(username=email,password=cpassw,first_name=f_name,last_name=l_name)
-                return render(request,"singup.html",{'success':"user created successfully"})    
-        else:
-            return render(request,"singup.html") 
-    return render(request,"singup.html") 
+    if request.user.is_superuser:
+        f_name=request.POST.get("f_name")
+        l_name=request.POST.get("l_name")
+        email=request.POST.get("email")
+        passw=request.POST.get("password")
+        cpassw=request.POST.get("confirmpassword")
+        if request.method=="POST":
+            if passw==passw:
+                try:
+                    user=User.objects.get(username=email)
+                    return render(request,"singup.html",{'error':"User already exists"})  
+                except User.DoesNotExist:
+                    user=User.objects.create_user(username=email,password=cpassw,first_name=f_name,last_name=l_name)
+                    return render(request,"singup.html",{'success':"user created successfully"})    
+            else:
+                return render(request,"singup.html") 
+    return redirect(index) 
 def client_details(request):
     if request.user.is_superuser:
         return render(request,"client_details.html")
