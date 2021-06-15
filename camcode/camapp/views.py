@@ -45,9 +45,10 @@ def singup(request):
                 except User.DoesNotExist:
                     user=User.objects.create_user(username=email,password=cpassw,first_name=f_name,last_name=l_name)
                     return render(request,"singup.html",{'success':"user created successfully"})    
-            else:
-                return render(request,"singup.html") 
-    return redirect(index) 
+        else:
+            return render(request,"singup.html") 
+    else:
+        return redirect(index) 
 def client_details(request):
     if request.user.is_superuser:
         return render(request,"client_details.html")
