@@ -8,7 +8,9 @@ from .camera import VideoCamera, IPWebCam, LiveWebCam
 from django.http.response import StreamingHttpResponse
 # Create your views here.
 def index(request):
-    if request.user.is_authenticated:
+    if request.user.is_superuser:
+        return render(request,"admin_page.html")
+    elif request.user.is_authenticated:
         if request.method=="POST":
             name=request.POST.get('name')
             passw=request.POST.get('password')
@@ -55,8 +57,17 @@ def client_details(request):
     return redirect(index)
 def admin_page(request):
     if request.user.is_superuser:
-        return render(request,"admin_page.html")
+        user=User.objects.all()
+        sendvar={
+          "user":user  
+        }
+        return render(request,"admin_page.html",sendvar)
     return redirect(index)
+def delete(request,id):
+    if request.method=="POST":
+        pk=User.objects.get(pk=id)
+        pk.delete()
+        return redirect(admin_page)
 def logout(request):
     auth.logout(request)
     return redirect(index)

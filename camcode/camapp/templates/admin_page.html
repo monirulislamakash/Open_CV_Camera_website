@@ -8,25 +8,27 @@
 	  <thead>
 	    <tr>
 	      <th scope="col">UserName</th>
-	      <th scope="col">Passwor</th>
+	      <th scope="col">First Name</th>
+		  <th scope="col">Last Name</th>
 	      <th scope="col">Opration,s</th>
 	    </tr>
 	  </thead>
 	  <tbody>
+	  {% for i in user|slice:"1:" %}
 	    <tr>
-	      <td>Mark</td>
-	      <td>Otto</td>
-	      <td>@mdo</td>
+	      <td>{{i.username}}</td>
+	      <td>{{i.first_name}}</td>
+	      <td>{{i.last_name}}</td>
+		  <td>
+		  <form class="d-inline" action="{% url 'delete' i.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="delete" style="background:none;border:none;">
+				<ion-icon name="trash-outline" style="color:red;"></ion-icon>
+			</button>
+        </form>
+		  </td>
 	    </tr>
-	    <tr>
-	      <td>Jacob</td>
-	      <td>Thornton</td>
-	      <td>@fat</td>
-	    </tr>
-	    <tr>
-	      <td colspan="2">Larry the Bird</td>
-	      <td>@twitter</td>
-	    </tr>
+		{% endfor %}
 	  </tbody>
 	</table>   	
 </div>
