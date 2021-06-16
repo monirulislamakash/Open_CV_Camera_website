@@ -9,7 +9,11 @@ from django.http.response import StreamingHttpResponse
 # Create your views here.
 def index(request):
     if request.user.is_superuser:
-        return render(request,"admin_page.html")
+        user=User.objects.all()
+        sendvar={
+          "user":user  
+        }
+        return render(request,"admin_page.html",sendvar)
     elif request.user.is_authenticated:
         if request.method=="POST":
             name=request.POST.get('name')
