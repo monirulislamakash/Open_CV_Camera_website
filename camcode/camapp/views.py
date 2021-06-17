@@ -67,6 +67,14 @@ def admin_page(request):
         }
         return render(request,"admin_page.html",sendvar)
     return redirect(index)
+def client_view(request,id):
+    if request.user.is_superuser:
+        user=User.objects.filter(id=id)
+        sendvar={
+          "user":user  
+        }
+        return render(request,"client_view.html",sendvar)
+    return redirect(index)
 def delete(request,id):
     if request.method=="POST":
         pk=User.objects.get(pk=id)
