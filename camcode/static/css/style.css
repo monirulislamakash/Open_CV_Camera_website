@@ -52,3 +52,39 @@ body{
 	height: 80vh;
 	border: solid #999 4px;
 }
+.c_content{
+	display: inline-block;
+	width:25%;
+	height:80vh;
+}
+.c_content select{
+	margin-top:10px;
+}
+.v_content{
+	display: inline-block;
+	width:74%;
+	height:80vh;
+	float: right;
+}
+.video_admin{
+	width: 55%;
+	height:35vh;
+	border: solid #999 4px;
+	float: left;
+}
+.action_admin{
+	display: inline-block;
+}
+.click_link{
+	padding:10px;
+	margin: 30px;
+	line-height:45px;
+	color: #000;
+	text-decoration:none;
+}
+.click{
+	padding:10px;
+	margin-left:38px;
+	line-height:45px;
+	color: #000;
+}

@@ -4,35 +4,78 @@
 {% block title %}Home Details{% endblock  %}
 {% block body %}
 <div class="container">
-	<table class="table table-dark table-hover">
-	  <thead>
-	    <tr>
-	      <th scope="col">UserName</th>
-	      <th scope="col">First Name</th>
-		  <th scope="col">Last Name</th>
-	      <th scope="col">Opration,s</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	  {% for i in user|slice:"1:" %}
-	    <tr>
-	      <td>{{i.username}}</td>
-	      <td>{{i.first_name}}</td>
-	      <td>{{i.last_name}}</td>
-		  <td>
-		  <form class="d-inline" action="{% url 'delete' i.id %}" method="POST">
-            {% csrf_token %}
-            <button type="submit" class="delete" style="background:none;border:none;">
-				<ion-icon name="trash-outline" style="color:red;"></ion-icon>
-			</button>
-			<a href="{% url 'client_view' i.id %}" >
-			<ion-icon name="eye-outline" style="color:#fff; font-size:18px;"></ion-icon>
-			</a>
-        </form>
-		  </td>
-	    </tr>
-		{% endfor %}
-	  </tbody>
-	</table>   	
+	<div class="c_content">
+		<select class="form-select" aria-label="Default select example">
+		  <option selected>Customer</option>
+		  <option value="1">One</option>
+		  <option value="2">Two</option>
+		  <option value="3">Three</option>
+		  <option value="3">Fore</option>
+		</select>
+		<select class="form-select" aria-label="Default select example">
+		  <option selected>Customer</option>
+		  <option value="1">One</option>
+		  <option value="2">Two</option>
+		  <option value="3">Three</option>
+		  <option value="3">Fore</option>
+		</select>
+		<select class="form-select" aria-label="Default select example">
+		  <option selected>Customer</option>
+		  <option value="1">One</option>
+		  <option value="2">Two</option>
+		  <option value="3">Three</option>
+		  <option value="3">Fore</option>
+		</select>
+		<select class="form-select" aria-label="Default select example">
+		  <option selected>Customer</option>
+		  <option value="1">One</option>
+		  <option value="2">Two</option>
+		  <option value="3">Three</option>
+		  <option value="3">Fore</option>
+		</select>
+		<select class="form-select" aria-label="Default select example">
+		  <option selected>Customer</option>
+		  <option value="1">One</option>
+		  <option value="2">Two</option>
+		  <option value="3">Three</option>
+		  <option value="3">Fore</option>
+		</select>
+		<select class="form-select" aria-label="Default select example">
+		  <option selected>Customer</option>
+		  <option value="1">One</option>
+		  <option value="2">Two</option>
+		  <option value="3">Three</option>
+		  <option value="3">Fore</option>
+		</select>
+		<select class="form-select" aria-label="Default select example">
+		  <option selected>Customer</option>
+		  <option value="1">One</option>
+		  <option value="2">Two</option>
+		  <option value="3">Three</option>
+		  <option value="3">Fore</option>
+		</select>
+		<select class="form-select" aria-label="Default select example">
+		  <option selected>Customer</option>
+		  <option value="1">One</option>
+		  <option value="2">Two</option>
+		  <option value="3">Three</option>
+		  <option value="3">Fore</option>
+		</select>
+		
+	</div> 
+	<div class="v_content">
+		<form class="d-flex">
+        	<input class="form-control m-2" type="search" placeholder="Search" aria-label="Search" style="width:40%;">
+        	<button class="btn btn-outline-dark m-2" type="submit">Search</button>
+      	</form>
+		<!---->
+            <iframe class="video_admin" src="https://www.youtube.com/embed/zFdi834FiZ4"></iframe>
+        <div class="action_admin">
+			<h4 class="click">Action</h4>
+        	<a href="#" class="click_link">Click To send an audio Massage</a><br>
+        	<a href="#" class="click_link">Click To set the camera not alaremed</a><br>
+        	<a href="#" class="click_link">Click To set the camera alaremed</a><br>
+        </div>
+	</div> 
 </div>
 {% endblock  %}

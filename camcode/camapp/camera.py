@@ -52,3 +52,9 @@ class LiveWebCam(object):
 		resize = cv2.resize(imgNp, (640, 480), interpolation = cv2.INTER_LINEAR) 
 		ret, jpeg = cv2.imencode('.jpg', resize)
 		return jpeg.tobytes()
+import cv2
+
+names = ['/home/saiful/Videos/Apocalypto 2006 Bluray HD Full Movie Download BY Ripon.MP4',
+         '/home/saiful/Videos/Baaghi 3 2020 New Latest Hindi Full Movie 2020.mp4',
+         '/home/saiful/Videos/Bahubali 2 (2017) 1CD DVDSCR x264 700MB MKV [DoriDro.Com].mkv',
+         '/home/saiful/Videos/Extraction (2020) Dual Audio Hindi 720p WEB-DL x264 AAC 1.2GB(BDmusicKing.Net).mkv']
