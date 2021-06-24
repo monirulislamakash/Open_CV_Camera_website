@@ -57,6 +57,13 @@ body{
 	width:25%;
 	height:80vh;
 }
+.c_content ul{
+	list-style: none;
+}
+.c_content ul li ul a{
+	text-decoration: none;
+	color: #000;
+}
 .c_content select{
 	margin-top:10px;
 }

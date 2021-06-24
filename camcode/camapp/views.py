@@ -20,8 +20,10 @@ def index(request):
             passw=request.POST.get('password')
             ipadd=request.POST.get('ipaddress')
             camno=request.POST.get('cname')
-            fm=AddCamera(Name=name,Password=passw,Ip_Adderss=ipadd,Camera_Number=camno)
+            user=instance=request.user
+            fm=AddCamera(Name=name,Password=passw,Ip_Adderss=ipadd,Camera_Number=camno,user=user)
             fm.save()
+            return render(request,"index.html")
         else:
             return render(request,"index.html")
     return redirect(login)
@@ -62,8 +64,10 @@ def client_details(request):
 def admin_page(request):
     if request.user.is_superuser:
         user=User.objects.all()
+        camera=AddCamera.objects.filter()
         sendvar={
-          "user":user  
+          "user":user,
+          "camera":camera
         }
         return render(request,"admin_page.html",sendvar)
     return redirect(index)

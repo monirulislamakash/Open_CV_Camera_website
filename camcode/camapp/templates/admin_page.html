@@ -5,63 +5,17 @@
 {% block body %}
 <div class="container">
 	<div class="c_content">
-		<select class="form-select" aria-label="Default select example">
-		  <option selected>Customer</option>
-		  <option value="1">One</option>
-		  <option value="2">Two</option>
-		  <option value="3">Three</option>
-		  <option value="3">Fore</option>
-		</select>
-		<select class="form-select" aria-label="Default select example">
-		  <option selected>Customer</option>
-		  <option value="1">One</option>
-		  <option value="2">Two</option>
-		  <option value="3">Three</option>
-		  <option value="3">Fore</option>
-		</select>
-		<select class="form-select" aria-label="Default select example">
-		  <option selected>Customer</option>
-		  <option value="1">One</option>
-		  <option value="2">Two</option>
-		  <option value="3">Three</option>
-		  <option value="3">Fore</option>
-		</select>
-		<select class="form-select" aria-label="Default select example">
-		  <option selected>Customer</option>
-		  <option value="1">One</option>
-		  <option value="2">Two</option>
-		  <option value="3">Three</option>
-		  <option value="3">Fore</option>
-		</select>
-		<select class="form-select" aria-label="Default select example">
-		  <option selected>Customer</option>
-		  <option value="1">One</option>
-		  <option value="2">Two</option>
-		  <option value="3">Three</option>
-		  <option value="3">Fore</option>
-		</select>
-		<select class="form-select" aria-label="Default select example">
-		  <option selected>Customer</option>
-		  <option value="1">One</option>
-		  <option value="2">Two</option>
-		  <option value="3">Three</option>
-		  <option value="3">Fore</option>
-		</select>
-		<select class="form-select" aria-label="Default select example">
-		  <option selected>Customer</option>
-		  <option value="1">One</option>
-		  <option value="2">Two</option>
-		  <option value="3">Three</option>
-		  <option value="3">Fore</option>
-		</select>
-		<select class="form-select" aria-label="Default select example">
-		  <option selected>Customer</option>
-		  <option value="1">One</option>
-		  <option value="2">Two</option>
-		  <option value="3">Three</option>
-		  <option value="3">Fore</option>
-		</select>
-		
+	{% for i in user|slice:"1:" %}
+		<ul>
+			<li>{{i.first_name}}
+			<ul>
+			{% for i in camera %}
+				<a href=""><li>{{i.Name}}</li></a>
+			{% endfor %}
+			</ul>
+			</li>
+		</ul>
+	{% endfor %}
 	</div> 
 	<div class="v_content">
 		<form class="d-flex">
